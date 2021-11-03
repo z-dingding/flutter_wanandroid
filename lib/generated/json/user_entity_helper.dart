@@ -17,7 +17,7 @@ userEntityFromJson(UserEntity data, Map<String, dynamic> json) {
 
 Map<String, dynamic> userEntityToJson(UserEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	data['data'] = entity.data?.toJson();
+	data['data'] = entity.data.toJson();
 	data['errorCode'] = entity.errorCode;
 	data['errorMsg'] = entity.errorMsg;
 	return data;

@@ -13,6 +13,8 @@ import 'package:flutter_wanandroid/models/cacheconfig_entity.dart';
 import 'package:flutter_wanandroid/generated/json/cacheconfig_entity_helper.dart';
 import 'package:flutter_wanandroid/models/articlelist_entity.dart';
 import 'package:flutter_wanandroid/generated/json/articlelist_entity_helper.dart';
+import 'package:flutter_wanandroid/models/answer_entity.dart';
+import 'package:flutter_wanandroid/generated/json/answer_entity_helper.dart';
 
 class JsonConvert<T> {
 	T fromJson(Map<String, dynamic> json) {
@@ -42,7 +44,15 @@ class JsonConvert<T> {
 			case ArticlelistData:
 				return articlelistDataFromJson(data as ArticlelistData, json) as T;
 			case ArticlelistDataDatas:
-				return articlelistDataDatasFromJson(data as ArticlelistDataDatas, json) as T;    }
+				return articlelistDataDatasFromJson(data as ArticlelistDataDatas, json) as T;
+			case AnswerEntity:
+				return answerEntityFromJson(data as AnswerEntity, json) as T;
+			case AnswerData:
+				return answerDataFromJson(data as AnswerData, json) as T;
+			case AnswerDataDatas:
+				return answerDataDatasFromJson(data as AnswerDataDatas, json) as T;
+			case AnswerDataDatasTags:
+				return answerDataDatasTagsFromJson(data as AnswerDataDatasTags, json) as T;    }
 		return data as T;
 	}
 
@@ -66,6 +76,14 @@ class JsonConvert<T> {
 				return articlelistDataToJson(data as ArticlelistData);
 			case ArticlelistDataDatas:
 				return articlelistDataDatasToJson(data as ArticlelistDataDatas);
+			case AnswerEntity:
+				return answerEntityToJson(data as AnswerEntity);
+			case AnswerData:
+				return answerDataToJson(data as AnswerData);
+			case AnswerDataDatas:
+				return answerDataDatasToJson(data as AnswerDataDatas);
+			case AnswerDataDatasTags:
+				return answerDataDatasTagsToJson(data as AnswerDataDatasTags);
 			}
 			return data as T;
 		}
@@ -99,6 +117,18 @@ class JsonConvert<T> {
 		if(type == (ArticlelistDataDatas).toString()){
 			return ArticlelistDataDatas().fromJson(json);
 		}
+		if(type == (AnswerEntity).toString()){
+			return AnswerEntity().fromJson(json);
+		}
+		if(type == (AnswerData).toString()){
+			return AnswerData().fromJson(json);
+		}
+		if(type == (AnswerDataDatas).toString()){
+			return AnswerDataDatas().fromJson(json);
+		}
+		if(type == (AnswerDataDatasTags).toString()){
+			return AnswerDataDatasTags().fromJson(json);
+		}
 
 		return null;
 	}
@@ -131,6 +161,18 @@ class JsonConvert<T> {
 		}
 		if(<ArticlelistDataDatas>[] is M){
 			return data.map<ArticlelistDataDatas>((e) => ArticlelistDataDatas().fromJson(e)).toList() as M;
+		}
+		if(<AnswerEntity>[] is M){
+			return data.map<AnswerEntity>((e) => AnswerEntity().fromJson(e)).toList() as M;
+		}
+		if(<AnswerData>[] is M){
+			return data.map<AnswerData>((e) => AnswerData().fromJson(e)).toList() as M;
+		}
+		if(<AnswerDataDatas>[] is M){
+			return data.map<AnswerDataDatas>((e) => AnswerDataDatas().fromJson(e)).toList() as M;
+		}
+		if(<AnswerDataDatasTags>[] is M){
+			return data.map<AnswerDataDatasTags>((e) => AnswerDataDatasTags().fromJson(e)).toList() as M;
 		}
 
 		throw Exception("not found");

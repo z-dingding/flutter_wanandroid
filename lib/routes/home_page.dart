@@ -86,7 +86,10 @@ class _HomeRouteState extends State<HomeRoute> with AutomaticKeepAliveClientMixi
         // 分页指示,指示器
         pagination:  Swiper.SwiperPagination(),
         onTap: (index){
-          showToast("点击了$index");
+          var bean =  bannerModel!.data[index];
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return WebViewRoute(url: bean.url!, id: bean.id!, title: bean.title!, isCollect: false);
+          }));
         },
         itemBuilder: (BuildContext context, int index){
           return Image.network(
@@ -134,13 +137,12 @@ Widget articleItem(ArticlelistDataDatas item,BuildContext context,int index,){
   ) ,
     child:GestureDetector(
       //此处注意
-      // onTap: _itemTap(index),
       onTap: () =>_itemTap(index,context),
       child: Container(
       margin: EdgeInsets.only(bottom: 6),
       padding:  EdgeInsets.all(10),
       decoration:BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0), //3像素圆角
+        borderRadius: BorderRadius.circular(10.0), //圆角
         color:Colors.grey.shade200,
       ),
       child:  Column(
