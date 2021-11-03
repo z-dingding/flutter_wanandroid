@@ -6,6 +6,7 @@ import 'package:flutter_wanandroid/routes/main_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_wanandroid/routes/setting_page.dart';
 import 'package:flutter_wanandroid/routes/theme_page.dart';
+import 'package:flutter_wanandroid/routes/webview_page.dart';
 import 'package:flutter_wanandroid/states/locale.dart';
 import 'package:flutter_wanandroid/states/theme.dart';
 import 'package:flutter_wanandroid/states/user.dart';

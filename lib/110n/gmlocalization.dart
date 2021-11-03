@@ -49,7 +49,7 @@ String get pwd_hint => isZh? "请输入密码" : "please write password";
 String get unknown => isZh? "未知" : "unknown";
 String get no_revalentMessage => isZh? "暂无相关信息" :"No relevant information is available";
 
-///设置页面相关
+  ///设置页面相关
   String get setting_logout => isZh? "退出登录" : "loginOut";
   String get setting_version => isZh? "当前版本" : "version";
   String get settting_logout_hint => isZh? "确定退出?" : "Sure to quit?";
@@ -59,7 +59,7 @@ String get no_revalentMessage => isZh? "暂无相关信息" :"No relevant inform
   String get common_cancel => isZh? "取消" : "Cancel";
   String get common_success => isZh? "操作成功" : "successful";
   String get common_fail => isZh? "操作失败" : "failure";
-
+  ///webview页面的文字
 
 
 }

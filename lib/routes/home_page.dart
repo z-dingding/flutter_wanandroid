@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart' as Swiper;
 import 'package:flutter_wanandroid/110n/gmlocalization.dart';
 import 'package:flutter_wanandroid/common/icondata.dart';
+import 'package:flutter_wanandroid/routes/webview_page.dart';
 import 'package:flutter_wanandroid/utils/toast.dart';
 import 'package:flutter_wanandroid/http/api.dart';
 import 'package:flutter_wanandroid/http/http_manager.dart';
@@ -134,7 +135,7 @@ Widget articleItem(ArticlelistDataDatas item,BuildContext context,int index,){
     child:GestureDetector(
       //此处注意
       // onTap: _itemTap(index),
-      onTap: () =>_itemTap(index),
+      onTap: () =>_itemTap(index,context),
       child: Container(
       margin: EdgeInsets.only(bottom: 6),
       padding:  EdgeInsets.all(10),
@@ -176,8 +177,11 @@ Widget articleItem(ArticlelistDataDatas item,BuildContext context,int index,){
 
 
 ///列表项的点击
-_itemTap(index){
-  showToast(listDatas[index].title!);
+_itemTap(index,context){
+     var bean = listDatas[index] ;
+    Navigator.push(context, MaterialPageRoute(builder: (context){
+      return WebViewRoute(url: bean.link!, id: bean.id!, title: bean.title!, isCollect: bean.collect!);
+    }));
 }
 
   @override
