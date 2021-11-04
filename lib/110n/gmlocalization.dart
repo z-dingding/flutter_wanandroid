@@ -60,6 +60,10 @@ String get no_revalentMessage => isZh? "暂无相关信息" :"No relevant inform
   String get common_success => isZh? "操作成功" : "successful";
   String get common_fail => isZh? "操作失败" : "failure";
   ///webview页面的文字
+///体系页面相关文字
+String  get system_title_system => isZh? "体系" : "sytstem";
+String  get system_title_navigation => isZh? "导航" : "navigation";
+
 
 
 }

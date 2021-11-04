@@ -88,6 +88,7 @@ Widget _buildItems(AnswerDataDatas item,BuildContext ctx){
          crossAxisAlignment: CrossAxisAlignment.start,
          children: [
            ListTile(
+             dense: true,
              contentPadding: EdgeInsets.all(0.0),
              leading: Text(item.author!),
              title: Text(item.chapterName ?? item.tags![0].name!),

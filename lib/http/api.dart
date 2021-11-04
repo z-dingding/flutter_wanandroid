@@ -15,4 +15,7 @@ class Api{
   static String answerList(int pageNum){
     return "/wenda/list/$pageNum/json ";
   }
+
+  ///体系列表
+ static const system_api = "/tree/json";
 }
