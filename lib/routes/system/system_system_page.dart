@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_wanandroid/http/api.dart';
 import 'package:flutter_wanandroid/http/http_manager.dart';
 import 'package:flutter_wanandroid/models/articlelist_entity.dart';
+import 'package:flutter_wanandroid/models/systemclassification_entity.dart';
 import 'package:flutter_wanandroid/models/systemlist_entity.dart';
+import 'package:flutter_wanandroid/routes/system/sytstem_classification_page.dart';
 import 'package:flutter_wanandroid/utils/toast.dart';
 
 class SystemListRoute extends StatefulWidget {
@@ -68,7 +70,7 @@ Widget _buildItem(){
       runAlignment:  WrapAlignment.start,
       children:childItem!.map((e) =>
          OutlinedButton(
-          onPressed: () => chapterItemClick(e),
+          onPressed: () => chapterItemClick(e,context),
           child: Text(e.name!),
           style: ButtonStyle( shape:  MaterialStateProperty.all(
               BeveledRectangleBorder(borderRadius: BorderRadius.circular(6))
@@ -80,8 +82,10 @@ Widget _buildItem(){
   }
 
 
-  void chapterItemClick(SystemlistDataChildren e){
-    showToast(e.name!);
+  void chapterItemClick(SystemlistDataChildren bean,BuildContext context){
+    Navigator.push(context, MaterialPageRoute(builder: (context){
+      return ClassificationRoute(id: bean.id!,title: bean.name!,);
+    }));
   }
 
   @override

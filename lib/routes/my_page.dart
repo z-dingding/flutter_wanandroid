@@ -70,9 +70,11 @@ class _MyRouteState extends State<MyRoute> with AutomaticKeepAliveClientMixin {
 
   ///主信息构建
   Widget _buildBody(BuildContext context,GmLocalization gm){
-
      return Expanded(child:  ListView(
-       children: [
+       children: ListTile.divideTiles(
+           context: context,
+           color: Theme.of(context).primaryColor,
+           tiles: [
          ListTile(
            leading: const Icon(Icons.color_lens),
            title: Text(gm.theme),
@@ -98,7 +100,7 @@ class _MyRouteState extends State<MyRoute> with AutomaticKeepAliveClientMixin {
              Navigator.pushNamed(context,"setting");
            },
          ),
-       ],
+       ]).toList(),
      ),);
 
   }

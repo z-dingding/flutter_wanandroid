@@ -18,4 +18,12 @@ class Api{
 
   ///体系列表
  static const system_api = "/tree/json";
+
+  ///体系分类列表
+static String systemclassificationlist(int pageNun,int cid){
+  return "/article/list/$pageNun/json?cid=$cid";
+}
+
+///导航列表
+static String navigationList ="/navi/json";
 }

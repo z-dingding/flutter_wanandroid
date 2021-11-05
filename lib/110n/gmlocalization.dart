@@ -64,7 +64,8 @@ String get no_revalentMessage => isZh? "暂无相关信息" :"No relevant inform
 String  get system_title_system => isZh? "体系" : "sytstem";
 String  get system_title_navigation => isZh? "导航" : "navigation";
 
-
+///体系-分类列表页面相关文字
+  String  get system_classification_new => isZh? "新" : "new";
 
 }
 

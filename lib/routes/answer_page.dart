@@ -1,6 +1,4 @@
 
-import 'dart:ui';
-
 import 'package:flukit/flukit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +7,7 @@ import 'package:flutter_wanandroid/http/api.dart';
 import 'package:flutter_wanandroid/http/http_manager.dart';
 import 'package:flutter_wanandroid/models/answer_entity.dart';
 import 'package:flutter_wanandroid/routes/webview_page.dart';
-import 'package:flutter_wanandroid/utils/toast.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 class AnswerRoute extends StatefulWidget {
 
