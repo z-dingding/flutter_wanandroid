@@ -57,12 +57,13 @@ class _HomeRouteState extends State<HomeRoute> with AutomaticKeepAliveClientMixi
             IconButton(icon: Icon(IconDatas.qrcode), onPressed: ()=> qrCodeFun()),
           ],),
       body: Column(
-         children: [
-            //banner区域
-            if(bannerModel != null)_buildBanner(context),
-              _bulidListView(context)
-         ],
-      ),
+            children: [
+              //banner区域
+              if(bannerModel != null)_buildBanner(context),
+              _bulidListView(context),
+            ],
+          ),
+
     );
   }
 

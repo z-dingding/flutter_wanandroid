@@ -15,6 +15,10 @@ import 'package:flutter_wanandroid/models/profile_entity.dart';
 import 'package:flutter_wanandroid/generated/json/profile_entity_helper.dart';
 import 'package:flutter_wanandroid/models/cacheconfig_entity.dart';
 import 'package:flutter_wanandroid/generated/json/cacheconfig_entity_helper.dart';
+import 'package:flutter_wanandroid/models/official_entity.dart';
+import 'package:flutter_wanandroid/generated/json/official_entity_helper.dart';
+import 'package:flutter_wanandroid/models/official_history_entity.dart';
+import 'package:flutter_wanandroid/generated/json/official_history_entity_helper.dart';
 import 'package:flutter_wanandroid/models/navigation_entity.dart';
 import 'package:flutter_wanandroid/generated/json/navigation_entity_helper.dart';
 import 'package:flutter_wanandroid/models/articlelist_entity.dart';
@@ -57,6 +61,18 @@ class JsonConvert<T> {
 				return profileEntityFromJson(data as ProfileEntity, json) as T;
 			case CacheconfigEntity:
 				return cacheconfigEntityFromJson(data as CacheconfigEntity, json) as T;
+			case OfficialEntity:
+				return officialEntityFromJson(data as OfficialEntity, json) as T;
+			case OfficialData:
+				return officialDataFromJson(data as OfficialData, json) as T;
+			case OfficialHistoryEntity:
+				return officialHistoryEntityFromJson(data as OfficialHistoryEntity, json) as T;
+			case OfficialHistoryData:
+				return officialHistoryDataFromJson(data as OfficialHistoryData, json) as T;
+			case OfficialHistoryDataDatas:
+				return officialHistoryDataDatasFromJson(data as OfficialHistoryDataDatas, json) as T;
+			case OfficialHistoryDataDatasTags:
+				return officialHistoryDataDatasTagsFromJson(data as OfficialHistoryDataDatasTags, json) as T;
 			case NavigationEntity:
 				return navigationEntityFromJson(data as NavigationEntity, json) as T;
 			case NavigationData:
@@ -106,6 +122,18 @@ class JsonConvert<T> {
 				return profileEntityToJson(data as ProfileEntity);
 			case CacheconfigEntity:
 				return cacheconfigEntityToJson(data as CacheconfigEntity);
+			case OfficialEntity:
+				return officialEntityToJson(data as OfficialEntity);
+			case OfficialData:
+				return officialDataToJson(data as OfficialData);
+			case OfficialHistoryEntity:
+				return officialHistoryEntityToJson(data as OfficialHistoryEntity);
+			case OfficialHistoryData:
+				return officialHistoryDataToJson(data as OfficialHistoryData);
+			case OfficialHistoryDataDatas:
+				return officialHistoryDataDatasToJson(data as OfficialHistoryDataDatas);
+			case OfficialHistoryDataDatasTags:
+				return officialHistoryDataDatasTagsToJson(data as OfficialHistoryDataDatasTags);
 			case NavigationEntity:
 				return navigationEntityToJson(data as NavigationEntity);
 			case NavigationData:
@@ -167,6 +195,24 @@ class JsonConvert<T> {
 		}
 		if(type == (CacheconfigEntity).toString()){
 			return CacheconfigEntity().fromJson(json);
+		}
+		if(type == (OfficialEntity).toString()){
+			return OfficialEntity().fromJson(json);
+		}
+		if(type == (OfficialData).toString()){
+			return OfficialData().fromJson(json);
+		}
+		if(type == (OfficialHistoryEntity).toString()){
+			return OfficialHistoryEntity().fromJson(json);
+		}
+		if(type == (OfficialHistoryData).toString()){
+			return OfficialHistoryData().fromJson(json);
+		}
+		if(type == (OfficialHistoryDataDatas).toString()){
+			return OfficialHistoryDataDatas().fromJson(json);
+		}
+		if(type == (OfficialHistoryDataDatasTags).toString()){
+			return OfficialHistoryDataDatasTags().fromJson(json);
 		}
 		if(type == (NavigationEntity).toString()){
 			return NavigationEntity().fromJson(json);
@@ -239,6 +285,24 @@ class JsonConvert<T> {
 		}
 		if(<CacheconfigEntity>[] is M){
 			return data.map<CacheconfigEntity>((e) => CacheconfigEntity().fromJson(e)).toList() as M;
+		}
+		if(<OfficialEntity>[] is M){
+			return data.map<OfficialEntity>((e) => OfficialEntity().fromJson(e)).toList() as M;
+		}
+		if(<OfficialData>[] is M){
+			return data.map<OfficialData>((e) => OfficialData().fromJson(e)).toList() as M;
+		}
+		if(<OfficialHistoryEntity>[] is M){
+			return data.map<OfficialHistoryEntity>((e) => OfficialHistoryEntity().fromJson(e)).toList() as M;
+		}
+		if(<OfficialHistoryData>[] is M){
+			return data.map<OfficialHistoryData>((e) => OfficialHistoryData().fromJson(e)).toList() as M;
+		}
+		if(<OfficialHistoryDataDatas>[] is M){
+			return data.map<OfficialHistoryDataDatas>((e) => OfficialHistoryDataDatas().fromJson(e)).toList() as M;
+		}
+		if(<OfficialHistoryDataDatasTags>[] is M){
+			return data.map<OfficialHistoryDataDatasTags>((e) => OfficialHistoryDataDatasTags().fromJson(e)).toList() as M;
 		}
 		if(<NavigationEntity>[] is M){
 			return data.map<NavigationEntity>((e) => NavigationEntity().fromJson(e)).toList() as M;

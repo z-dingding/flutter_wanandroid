@@ -26,4 +26,14 @@ static String systemclassificationlist(int pageNun,int cid){
 
 ///导航列表
 static String navigationList ="/navi/json";
+
+
+///公众号列表
+static String official_api = "/wxarticle/chapters/json";
+
+///公众号的历史数据
+static String officialHistoryList(int id,int pageNum){
+  return "/wxarticle/list/$id/$pageNum/json";
+}
+
 }

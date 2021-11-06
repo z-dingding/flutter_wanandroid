@@ -40,7 +40,7 @@ class _MainRouteState extends State {
     return Scaffold(
       body: PageView.builder(
         //pageview禁止滑动
-        //physics: NeverScrollableScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         itemCount: pages.length,
         itemBuilder: (BuildContext context, int index) {

@@ -107,11 +107,41 @@ class HttpManager {
       }
     );
     Response response;
-    response = await dio.request(url,data:params ,queryParameters: queryParams,options: options);
+    try{
+       response = await dio.request(url,data:params ,queryParameters: queryParams,options: options);
+    }on DioError catch(e){
+      formatError(e);
+    }
     //隐藏加载框
     if(isLoding)Navigator.pop(context);
     return response.data;
   }
+
+
+
+  /// error统一处理
+  void formatError(DioError e) {
+    if (e.type == DioErrorType.CONNECT_TIMEOUT) {
+      // It occurs when url is opened timeout.
+      showToast("连接超时");
+    } else if (e.type == DioErrorType.SEND_TIMEOUT) {
+      // It occurs when url is sent timeout.
+      showToast("请求超时");
+    } else if (e.type == DioErrorType.RECEIVE_TIMEOUT) {
+      //It occurs when receiving timeout
+      showToast("响应超时");
+    } else if (e.type == DioErrorType.RESPONSE) {
+      // When the server response, but with a incorrect status, such as 404, 503...
+      showToast("出现异常");
+    } else if (e.type == DioErrorType.CANCEL) {
+      // When the request is cancelled, dio will throw a error with this type.
+      showToast("请求取消");
+    } else {
+      //DEFAULT Default error type, Some other Error. In this case, you can read the DioError.error if it is not null.
+      showToast("未知错误");
+    }
+  }
+
 }
 
 

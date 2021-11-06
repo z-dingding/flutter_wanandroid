@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_wanandroid/110n/gmlocalization.dart';
 import 'package:flutter_wanandroid/routes/system/system_navigation_page.dart';
 import 'package:flutter_wanandroid/routes/system/system_system_page.dart';
-import 'package:flutter_wanandroid/utils/toast.dart';
 import 'package:flutter_wanandroid/widgets/system_appbar.dart';
 
 class SystemRoute extends StatefulWidget {
@@ -45,12 +44,13 @@ class _SystemRouteState extends State<SystemRoute> with AutomaticKeepAliveClient
       appBar: AppBar(
         title: SystemAppBar(currentPage,titles, _TitleChanged),
       ),
-      body: PageView(
-        children:routes ,
-        controller: _pageController,
-        onPageChanged: _onPageChange,
-        pageSnapping:true,
-      ),
+      body:  PageView(
+          //physics: NeverScrollableScrollPhysics(),
+          children:routes ,
+          controller: _pageController,
+          onPageChanged: _onPageChange,
+          pageSnapping:true,
+        ),
     );
   }
 
