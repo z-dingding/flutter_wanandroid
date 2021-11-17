@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_wanandroid/110n/gmlocalization.dart';
 import 'package:flutter_wanandroid/common/global.dart';
 import 'package:flutter_wanandroid/http/responseinterceptor.dart';
 import 'package:flutter_wanandroid/utils/toast.dart';
@@ -20,7 +21,7 @@ class HttpManager {
 
   static HttpManager _instance;
 
-  static HttpManager get instance => _httpManager();
+  static HttpManager get instance  => _httpManager();
 
   ///私有化构造方法,通过._的方式
   HttpManager._() {
@@ -91,6 +92,8 @@ class HttpManager {
     BuildContext context,
     }) async {
 
+
+
     if(isLoding) showLoading(context);
 
      var cookies = Global.sharePref.getString(Const.KEY_COOKIES);
@@ -114,6 +117,15 @@ class HttpManager {
     }
     //隐藏加载框
     if(isLoding)Navigator.pop(context);
+
+    //处理需要登陆的情况(由于拦截器没有传递context,所以要写在此处)
+    var code = response.data['errorCode'];
+    if(code == -1001){
+      GmLocalization  gm = GmLocalization.of(context);
+      showConfirmDialog(context, gm.pleaseloginfirt, false, (){
+        Navigator.pushNamed(context,"login");
+      });
+    }
     return response.data;
   }
 

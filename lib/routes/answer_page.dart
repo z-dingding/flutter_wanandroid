@@ -89,7 +89,7 @@ Widget _buildItems(AnswerDataDatas item,BuildContext ctx){
              contentPadding: EdgeInsets.all(0.0),
              leading: Text(item.author!),
              title: Text(item.chapterName ?? item.tags![0].name!),
-             trailing:Text(item.shareDate!.toString()) ,
+             trailing:Text(item.niceShareDate!.toString()) ,
            ),
            Padding(
                padding: EdgeInsets.all(0),

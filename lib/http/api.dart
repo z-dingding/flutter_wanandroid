@@ -36,4 +36,15 @@ static String officialHistoryList(int id,int pageNum){
   return "/wxarticle/list/$id/$pageNum/json";
 }
 
+
+///收藏站内文章
+static String collectionFromSite(int id){
+  return "/lg/collect/$id/json";
+}
+
+///取消收藏站内文章
+  static String unCollectionFromSite(int id){
+    return "/lg/uncollect_originId/$id/json";
+  }
+
 }

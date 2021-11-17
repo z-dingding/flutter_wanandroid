@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_wanandroid/110n/gmlocalization.dart';
 import 'package:flutter_wanandroid/routes/language_page.dart';
 import 'package:flutter_wanandroid/routes/login_page.dart';
@@ -12,7 +13,13 @@ import 'package:flutter_wanandroid/states/user.dart';
 import 'package:provider/provider.dart';
 import 'common/global.dart';
 
-void main() => Global.init().then((value) => runApp(MyApp()));
+void main() => Global.init().then((value) => {
+SystemChrome.setPreferredOrientations([
+DeviceOrientation.portraitUp, //只能纵向
+DeviceOrientation.portraitDown,//只能纵向
+]),
+  runApp(MyApp()),
+});
 
 class MyApp extends StatelessWidget {
 

@@ -71,22 +71,25 @@ void showLoading(context, [String text = "Loading..."]) {
 void showConfirmDialog(BuildContext context,String content,bool isShowCancel ,Function confirmCallback) {
  GmLocalization gm = GmLocalization.of(context);
   showDialog(
+    //点击外部不消失
+    //  barrierDismissible: false,
       context: context,
       builder: (context) {
         return new AlertDialog(
           title: new Text(gm.common_hint),
           content: new Text(content),
+
           actions: <Widget>[
             if(isShowCancel) FlatButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.pop(context);
               },
               child: new Text(gm.common_cancel),
             ),
             new FlatButton(
               onPressed: () {
-                confirmCallback();
-                Navigator.of(context).pop();
+               Navigator.of(context).pop();
+               confirmCallback();
               },
               child: new Text(gm.common_sure),
             ),

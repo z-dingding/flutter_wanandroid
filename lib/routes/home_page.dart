@@ -58,8 +58,6 @@ class _HomeRouteState extends State<HomeRoute> with AutomaticKeepAliveClientMixi
           ],),
       body: Column(
             children: [
-              //banner区域
-              if(bannerModel != null)_buildBanner(context),
               _bulidListView(context),
             ],
           ),
@@ -115,6 +113,10 @@ class _HomeRouteState extends State<HomeRoute> with AutomaticKeepAliveClientMixi
            //页码，拼接在连接中，从0开始。
            var res = await HttpManager.instance.get(Api.articlelist(page-1),isRefresh:page == 1,isList: true,isCache: true );
            articlelistEntity =   ArticlelistEntity().fromJson(res).data;
+           if(page == 1){
+            //添加一个轮播区域的占位
+             items.insert(0, articlelistEntity!.datas![0]);
+          }
            items.addAll(articlelistEntity!.datas!);
            //每次都更新listDatas中的数据
            listDatas.clear();
@@ -123,7 +125,9 @@ class _HomeRouteState extends State<HomeRoute> with AutomaticKeepAliveClientMixi
            return items.length  <  articlelistEntity!.total!;
          },
          itemBuilder: (List<ArticlelistDataDatas> list, int index, BuildContext ctx){
-           return articleItem(list[index], ctx, index);
+           //如果是第一条数据展示banner区域，其它展示列表区域
+           if(bannerModel != null && index == 0 ) return _buildBanner(context);
+           else return articleItem(list[index], ctx, index);
          },
        ),);
  }
@@ -169,7 +173,6 @@ Widget articleItem(ArticlelistDataDatas item,BuildContext context,int index,){
                   fontSize: 12,
                 ),)
               ],
-
             ),),
         ],
       ),
@@ -181,10 +184,13 @@ Widget articleItem(ArticlelistDataDatas item,BuildContext context,int index,){
 
 ///列表项的点击
 _itemTap(index,context){
-     var bean = listDatas[index] ;
-    Navigator.push(context, MaterialPageRoute(builder: (context){
-      return WebViewRoute(url: bean.link!, id: bean.id!, title: bean.title!, isCollect: bean.collect!);
-    }));
+    if(index != 0){
+      var bean = listDatas[index] ;
+      Navigator.push(context, MaterialPageRoute(builder: (context){
+        return WebViewRoute(url: bean.link!, id: bean.id!, title: bean.title!, isCollect: bean.collect!);
+      }));
+    }
+
 }
 
   @override
