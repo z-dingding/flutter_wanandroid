@@ -57,7 +57,7 @@ void showLoading(context, [String text = "Loading..."]) {
                   padding: const EdgeInsets.only(top: 20.0),
                   child: Text(
                     text,
-                    style: Theme.of(context).textTheme.body2,
+                    style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ),
               ],
@@ -80,13 +80,13 @@ void showConfirmDialog(BuildContext context,String content,bool isShowCancel ,Fu
           content: new Text(content),
 
           actions: <Widget>[
-            if(isShowCancel) FlatButton(
+            if(isShowCancel)TextButton (
               onPressed: () {
                 Navigator.pop(context);
               },
               child: new Text(gm.common_cancel),
             ),
-            new FlatButton(
+            new TextButton (
               onPressed: () {
                Navigator.of(context).pop();
                confirmCallback();

@@ -39,6 +39,8 @@ class MyApp extends StatelessWidget {
           title: GmLocalization.of(context).title,
           theme: ThemeData(
             primaryColor: theme.theme as MaterialColor,
+            //要让主题生效需要用primarySwatch属性
+            primarySwatch: theme.theme as MaterialColor,
           ),
           home: MainRoute(),
           routes: {
